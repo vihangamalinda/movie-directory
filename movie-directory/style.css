@@ -41,6 +41,7 @@ main{
     width: 300px;
     margin: 1rem 2rem;
     overflow: hidden;
+    position: relative;
  
     
 
@@ -84,7 +85,30 @@ main{
     color: red;
 }
 
+.overview{
+    background-color:  rgb(237, 231, 231,0.8);
+    padding: 2rem;
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
 
+.movie:hover .overview{
+    transform: translateY(0);
+
+}
+
+.overview-info{
+ 
+    margin-top: 0px;
+    font-weight: 500;
+
+}
 
 
 /* 
