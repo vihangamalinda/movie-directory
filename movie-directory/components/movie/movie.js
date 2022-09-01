@@ -3,9 +3,20 @@ import card from "../card/card.js";
 
 
 
-const getPopularMovies = async()=>{
+export const getPopularMovies = async()=>{
 
-const response = await fetch(`${endPoints.GET_ALL_POPULAR_MOVIES}`);
+    showMovies(endPoints.GET_ALL_POPULAR_MOVIES);
+
+}
+
+export const searchMovies = async(searchVal)=>{
+    console.log(endPoints.SEARCH_API+searchVal);
+    showMovies(endPoints.SEARCH_API+searchVal);
+
+}
+
+const showMovies = async (url) =>{
+    const response = await fetch(`${url}`);
 const result = await response.json();
 console.log(result);
 const introClass =document.getElementsByClassName("intro")[0];
@@ -15,13 +26,9 @@ result.results.forEach((movie) => {
     console.log(cardValue);
     introClass.childNodes[1].appendChild(cardValue);
     
-});
+})
+};
 
-
-
-
-}
-
-console.log(`endPoints.GET_ALL_POPULAR_MOVIES:${endPoints.GET_ALL_POPULAR_MOVIES}`)
-getPopularMovies();
+// console.log(`endPoints.GET_ALL_POPULAR_MOVIES:${endPoints.GET_ALL_POPULAR_MOVIES}`)
+// getPopularMovies();
 
